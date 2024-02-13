@@ -1,18 +1,20 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div class="container mx-auto">
+    <header class="shadow-xl py-5 mb-5 ">
+      <div class="wrapper">
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+        <nav class="flex gap-5 justify-center">
+          <RouterLink class="hover:text-red-400" to="/">Todo List</RouterLink>
+          <RouterLink class="hover:text-red-400" to="/about">Gallary</RouterLink>
+          <RouterLink class="hover:text-red-400" to="/homework">Homework</RouterLink>
+        </nav>
+      </div>
+    </header>
 
-  <RouterView />
+    <RouterView />
+  </div>
 </template>
