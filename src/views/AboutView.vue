@@ -68,7 +68,5 @@ const imgs = ref([
 ])
 </script>
 <style>
-.router-link-active {
-  color: coral;
-}
+
 </style>

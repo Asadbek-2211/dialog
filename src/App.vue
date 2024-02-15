@@ -11,6 +11,7 @@ import { RouterLink, RouterView } from "vue-router";
           <RouterLink class="hover:text-red-400" to="/">Todo List</RouterLink>
           <RouterLink class="hover:text-red-400" to="/about">Gallary</RouterLink>
           <RouterLink class="hover:text-red-400" to="/homework">Homework</RouterLink>
+          <RouterLink class="hover:text-red-400" to="/user">User</RouterLink>
         </nav>
       </div>
     </header>
@@ -18,3 +19,8 @@ import { RouterLink, RouterView } from "vue-router";
     <RouterView />
   </div>
 </template>
+<style>
+.router-link-active {
+  color: coral;
+}
+</style>
