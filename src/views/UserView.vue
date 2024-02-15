@@ -8,8 +8,10 @@
 </el-row>
 </template>
 <script setup>
-import users from "@/server/users.json"
 import userCard from "@/components/UserCard.vue"
+
+const users = JSON.parse(localStorage.getItem("users"))
+console.log(users);
 const funck = () => {
     console.log(1111);
 }
