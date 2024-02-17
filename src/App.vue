@@ -12,6 +12,7 @@ import { RouterLink, RouterView } from "vue-router";
           <RouterLink class="hover:text-red-400" to="/about">Gallary</RouterLink>
           <RouterLink class="hover:text-red-400" to="/homework">Homework</RouterLink>
           <RouterLink class="hover:text-red-400" to="/user">User</RouterLink>
+          <RouterLink class="hover:text-red-400" to="/buttons">Buttons</RouterLink>
         </nav>
       </div>
     </header>
