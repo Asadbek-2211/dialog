@@ -6,7 +6,7 @@ import { ref } from 'vue';
 const inp_search = ref("")
 const emits = defineEmits(["input_arg"])
 const send_change = () => {
-    emits("input_arg",)
+    emits("input_arg",inp_search.value)
 }
 </script>
 <style>
