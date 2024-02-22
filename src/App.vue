@@ -14,6 +14,7 @@ import { RouterLink, RouterView } from "vue-router";
           <RouterLink class="hover:text-red-400" to="/user">User</RouterLink>
           <RouterLink class="hover:text-red-400" to="/buttons">Buttons</RouterLink>
           <RouterLink class="hover:text-red-400" to="/post">Post</RouterLink>
+          <RouterLink class="hover:text-red-400" to="/students">Students</RouterLink>
         </nav>
       </div>
     </header>
