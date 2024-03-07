@@ -6,7 +6,7 @@
   </el-col>
 </el-row>
 <el-dialog v-model="dialog_val" align-center>
-<img :src="active_img" alt="">
+ <input type="text">
 </el-dialog>
 </div>
 </template>

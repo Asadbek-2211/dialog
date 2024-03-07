@@ -17,7 +17,11 @@
         <td>{{ student.status }}</td>
         <td>{{ student.age }}</td>
       </tr>
-      {{ props.age }}
+     <tr v-if="filtered_students.length == 0">
+      <td colspan="5">
+        No Students
+      </td>
+     </tr>
     </tbody>
   </table>
 </template>
@@ -54,25 +58,32 @@ const students = [
 
 const filtered_students = ref([]);
 const filter_students = () => {
-  if (props.status.length == 0) filtered_students.value = students;
+  if (props.status.length == 0 && !props.age) filtered_students.value = students;
   else {
-    filtered_students.value = students.filter((s) => s.status == props.status);
+    filtered_students.value = students.filter((s) =>  {
+      if(!props.age) return s.status == props.status
+      else if (props.status.length == 0) {
+        if(props.age == 8) return s.age >= 8 && s.age < 12
+        else return s.age >= 12 && s.age <= 16;
+      }else{
+        if(props.age == 8) return s.age >= 8 && s.age < 12 && s.status == props.status
+        else return s.age >= 12 && s.age <= 16 && s.status == props.status
+      }
+      });
   }
 };
-const filtered_age = ref([]);
-const filter_age = () => {
-  if( 3 ) filtered_age.value = students
-    else {
-      filtered_students.value = students.filter((s) => s.age == props.age)
-    }
-}
 onMounted(() => {
   filter_students();
-  filter_age()
 });
 
 watch(
   () => props.status,
+  () => {
+    filter_students();
+  }
+);
+watch(
+  () => props.age,
   () => {
     filter_students();
   }

@@ -1,5 +1,5 @@
 <template>
-<input type="text" v-model="inp_search" class=" border-2" @input="send_change">
+<input type="text" v-model="inp_search" class="border-2" @input="send_change">
 </template>
 <script setup>
 import { ref } from 'vue';

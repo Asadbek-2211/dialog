@@ -6,8 +6,8 @@
         <el-option label="archived" value="archived"/>
     </el-select>
     <el-select v-model="age_val" class="w-32 my-2" placeholder="Age" clearable>
-        <el-option label="8-12" value="8"/>
-        <el-option label="12-16" value="16"/>
+        <el-option label="8-12" :value="8"/>
+        <el-option label="12-16" :value="16"/>
     </el-select>
     <StudentsTable :status="status_val" :age="age_val" />
   </div>
