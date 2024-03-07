@@ -1,39 +1,57 @@
 <template>
-<div class="container">
-  <div class="big_div bg-[aqua]">
-    <div class="btn_input">
-    <input type="text" v-model="todo_input" class="input" placeholder="New Todo">
-    <button @click="add_todo" class="add_btn">Add</button>
-   </div>
-  <ul class="ul">
-    <li v-for="(todo,i) in todos" :key="todo.id" class="li" >
-      <div class="end_delete">
-      <p :class="{
-         completed_todo: todo.is_completed
-      }
-      "> {{ i + 1 }} {{ todo.title }}</p>
-      <button @click="" class="end_btn">end</button>
-      <button @click="" class="delete_btn">delete</button>
-     </div>
-    </li>
-  </ul>
+  <div class="container">
+    <div class="big_div bg-[aqua]">
+      <div class="btn_input">
+        <input
+          type="text"
+          v-model="todo_input"
+          class="input"
+          placeholder="New Todo"
+        />
+        <button
+          @click="
+            store.commit('addTodo', { title: todo_input, user: 'adasbek' })
+          "
+          class="add_btn"
+        >
+          Add
+        </button>
+      </div>
+      <ul class="ul">
+        <li v-for="(todo, i) in store.state.todos" :key="todo.id" class="li">
+          <div class="end_delete">
+            <p
+              :class="{
+                completed_todo: todo.is_completed,
+              }"
+            >
+              {{ i + 1 }} {{ todo.title }}- {{ todo.user }}
+            </p>
+
+            <button @click="" class="end_btn">end</button>
+            <button @click="store.commit('deleteTask',todo.id)" class="delete_btn">delete</button>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 </template>
 <script setup>
 import { useStore } from "vuex";
+import { ref } from "vue";
 const store = useStore();
+const todo_input = ref("");
 </script>
 <style>
 .completed_todo {
   text-decoration: line-through;
 }
 .btn_input {
-padding: 10px;
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 30px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }
 .big_div {
   width: 700px;
@@ -77,5 +95,4 @@ gap: 30px;
   color: black;
   border-radius: 15px;
 }
-
 </style>
